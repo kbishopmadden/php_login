@@ -13,14 +13,17 @@
       $ext = $this->ext;
       switch($form){
         case 'login':
-          $form = "signin.{$ext}";
+          $form = "login.{$ext}";
         break;
-        case 'newUser':
+        case 'new-user':
+          $form = "{$form}.{$ext}";
+        break;
+        case 'profile':
           $form = "{$form}.{$ext}";
         break;
         default:
           die('Invalid Form');
       }
-      return file_get_contents($form);
+      return file_get_contents("views/".$form);
     }
   }

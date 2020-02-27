@@ -1,6 +1,19 @@
 <h1>Sign up</h1>
-<form action="signup.php" method="POST">
+<form action="/?page=create-new-user" method="POST">
+    Name: <input type="text" name="name">
     Email: <input type="email" name="email">
-    Password: <input type="text" name="password">
+    Password: <input type="text" name="password" id="password">
+    Verify Password: <input type="text" name="verifyPassword" id="verifyPassword">
     <button type="submit">submit</button>
 </form>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $("button").on("click",function(event){
+        if($("#password").val() !== $("#verifyPassword").val()){
+            event.preventDefault();
+            alert("Passwords do not match")
+        }
+    })
+
+</script>
